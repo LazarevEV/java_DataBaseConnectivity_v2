@@ -1,0 +1,7 @@
+.tableButton {
+    -fx-background-color: #6A7F97;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-text-fill: #e4e4e4;
+    -fx-text-alignment: CENTER;
+}
