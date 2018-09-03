@@ -126,13 +126,20 @@ public class WorkScreenController implements Initializable {
 
     public void createTable() {
         try{
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/resources/fxml/CreateTable.fxml"));
-            Parent createTableRoot = (Parent) fxmlLoader.load();
-            Stage stage = new Stage();
-            stage.setResizable(false);
-            stage.setTitle("Creating Table");
-            stage.setScene(new Scene(createTableRoot));
-            stage.show();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/resources/fxml/CreateTable.fxml"));
+            loader.load();
+
+            CreateTableController ctc = loader.getController();
+            ctc.setDbConnection(dbConnection);
+            ctc.setDbtw(dbtw);
+
+            Parent root = loader.getRoot();
+            Stage wscStage = new Stage();
+            wscStage.setTitle("Working Screen");
+            wscStage.setScene(new Scene(root));
+            wscStage.setResizable(false);
+            wscStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }

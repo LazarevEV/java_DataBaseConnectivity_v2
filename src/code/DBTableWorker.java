@@ -1,5 +1,6 @@
 package code;
 
+import code.sceneControllers.CreateTableController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
@@ -40,8 +41,15 @@ public class DBTableWorker {
         }
     }
 
-    public void tableCreate() {
+    public void tableCreate(ArrayList<CreateTableController.TableObject> tblObjAL, String tableName) throws SQLException {
+        String code = "";
+        for (CreateTableController.TableObject tblObj : tblObjAL) {
+            code += tblObj.getColumnName() + "  " + tblObj.getDataType() + ",\n";
+        }
 
+        String selectTable = "CREATE TABLE " + tableName + " (\n" + code + ")";
+        System.out.println("\n" + selectTable + "\n");
+       // resultSet = statement.executeQuery(selectTable);
     }
 
     public void tableDrop() throws SQLException {

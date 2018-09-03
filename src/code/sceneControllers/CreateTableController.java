@@ -1,16 +1,15 @@
 package code.sceneControllers;
 
-import code.Table;
+import code.DBConnection;
+import code.DBTableWorker;
 import com.jfoenix.controls.JFXButton;
 import javafx.beans.property.SimpleStringProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class CreateTableController {
@@ -36,13 +35,13 @@ public class CreateTableController {
     @FXML
     private JFXButton createTblButton;
 
+    DBConnection dbConnection;
+    DBTableWorker dbtw;
+
     private int columnAmount;
     private String tableName;
 
     private ArrayList<TableObject> tblObjAL = new ArrayList<>();
-
-    public void updateTableView() {
-    }
 
     public void setColumn() {
         String columnName = clmnNameField.getText();
@@ -61,7 +60,10 @@ public class CreateTableController {
         System.out.println("columnName: " + tblObjAL.get(tblObjAL.size()-1).columnName.getValue() + " || dataType: " + tblObjAL.get(tblObjAL.size()-1).dataType.getValue());
     }
 
-    public void createTable() {
+    public void createTable() throws SQLException {
+        tableName = tblNameField.getText();
+
+        dbtw.tableCreate(tblObjAL, tableName);
 
     }
 
@@ -89,6 +91,22 @@ public class CreateTableController {
         public void setDataType(String dataType) {
             this.dataType.set(dataType);
         }
+    }
+
+    public DBConnection getDbConnection() {
+        return dbConnection;
+    }
+
+    public void setDbConnection(DBConnection dbConnection) {
+        this.dbConnection = dbConnection;
+    }
+
+    public DBTableWorker getDbtw() {
+        return dbtw;
+    }
+
+    public void setDbtw(DBTableWorker dbtw) {
+        this.dbtw = dbtw;
     }
 }
 
