@@ -105,17 +105,6 @@ public class WorkScreenController implements Initializable {
 //        }
     }
 
-    private void showTableI(String tableName) throws SQLException {
-        table = dbtw.showAll(tableName);
-        tableView.getColumns().clear();
-        ArrayList<TableColumn> tabColAL = new ArrayList<>();
-        for (String str : table.getColomnNames()) {
-            TableColumn tabCol = new TableColumn(str);
-            tabCol.setPrefWidth(tableView.getPrefWidth() / table.getColumns());
-            tableView.getColumns().add(tabCol);
-        }
-    }
-
     public void showTable(String tableName) throws SQLException {
         table = dbtw.showAll(tableName);
         tableView.getColumns().clear();
@@ -160,7 +149,7 @@ public class WorkScreenController implements Initializable {
         }
     }
 
-    public void insertTable() {
+    public void insertRow() {
         if (tableSelected.equals("")) return;
         try{
             FXMLLoader loader = new FXMLLoader();
@@ -184,6 +173,21 @@ public class WorkScreenController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void deleteRow() throws SQLException {
+        if (tableView.getSelectionModel().getSelectedItem().isEmpty()) return;
+        String where = "";
+        System.out.println("Columns: " + table.getColumns());
+
+        for (int i =0; i < table.getColumns(); i++) {
+            where += " " + table.getColomnNames().get(i) + " = \'" +
+                    tableView.getSelectionModel().getSelectedItem().get(i) + "\' AND";
+        }
+        where += where.substring(0, where.length()-4);
+
+        dbtw.tableDelete(tableSelected, where);
+        showTable(tableSelected);
     }
 
     public void updateTable() {

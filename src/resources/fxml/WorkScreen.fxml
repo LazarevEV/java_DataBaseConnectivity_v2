@@ -23,14 +23,15 @@
       </ScrollPane>
    </center>
    <right>
-      <TableView fx:id="tableView" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="1000.0" stylesheets="@../css/TableView.css" BorderPane.alignment="CENTER" />
+      <TableView fx:id="tableView" focusTraversable="false" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="1000.0" stylesheets="@../css/TableView.css" BorderPane.alignment="CENTER" />
    </right>
    <bottom>
       <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="54.0" prefWidth="1200.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
             <JFXButton fx:id="tableListButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#showTableList" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #6A7F97; -fx-background-radius: 0;" text="SHOW TABLES" textFill="#e4e4e4" />
             <JFXButton fx:id="createTblButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#createTable" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #6A7F97; -fx-background-radius: 0;" text="CREATE TABLE" textFill="#e4e4e4" />
-            <JFXButton fx:id="insertButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#insertTable" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #6A7F97; -fx-background-radius: 0;" text="INSERT" textFill="#e4e4e4" />
+            <JFXButton fx:id="insertButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#insertRow" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #6A7F97; -fx-background-radius: 0;" text="INSERT ROW" textFill="#e4e4e4" />
+            <JFXButton fx:id="deleteButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#deleteRow" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #6A7F97; -fx-background-radius: 0;" text="DELETE ROW" textFill="#e4e4e4" />
             <JFXButton fx:id="updateButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#updateTable" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #6A7F97; -fx-background-radius: 0;" text="UPDATE" textFill="#e4e4e4" />
             <JFXButton fx:id="dropButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#dropTable" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #6A7F97; -fx-background-radius: 0;" text="DROP" textFill="#e4e4e4" />
          </children>

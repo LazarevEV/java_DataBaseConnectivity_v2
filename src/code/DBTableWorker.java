@@ -33,13 +33,6 @@ public class DBTableWorker {
         return tableList;
     }
 
-    public void showTableListI() throws SQLException { //DOESNT WORK
-        DatabaseMetaData dmd = dbConnection.getConnection().getMetaData();
-        resultSet = dmd.getTables(null, null, null, null);
-        while (resultSet.next()) {
-            System.out.println(resultSet.getString(3));
-        }
-    }
 
     public void tableCreate(ArrayList<CreateTableController.TableObject> tblObjAL, String tableName) throws SQLException {
         String code = "";
@@ -64,6 +57,12 @@ public class DBTableWorker {
 
     public void tableInsert(String tableName, String value) throws SQLException {
         String query = "INSERT INTO " + tableName + " VALUES (" + value + ")";
+        System.out.println(query);
+        resultSet = statement.executeQuery(query);
+    }
+
+    public void tableDelete(String tableName, String where) throws SQLException { //DELETE ROW
+        String query = "DELETE FROM " + tableName + " WHERE " + where;
         System.out.println(query);
         resultSet = statement.executeQuery(query);
     }

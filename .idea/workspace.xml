@@ -3,17 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="42c3c190-6c6f-478d-b2e4-c468700ebad9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java_DBConnectivity/code/sceneControllers/CreateTableController$TableObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java_DBConnectivity/code/sceneControllers/CreateTableController$TableObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java_DBConnectivity/code/sceneControllers/CreateTableController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java_DBConnectivity/code/sceneControllers/CreateTableController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java_DBConnectivity/code/sceneControllers/LogInScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java_DBConnectivity/code/sceneControllers/LogInScreenController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java_DBConnectivity/resources/fxml/CreateTable.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java_DBConnectivity/resources/fxml/CreateTable.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java_DBConnectivity/resources/fxml/InsertTable.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java_DBConnectivity/resources/fxml/InsertTable.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/java_DBConnectivity/resources/fxml/WorkScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java_DBConnectivity/resources/fxml/WorkScreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/sceneControllers/CreateTableController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/sceneControllers/CreateTableController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/sceneControllers/LogInScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/sceneControllers/LogInScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java_DBConnectivity/code/sceneControllers/WorkScreenController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java_DBConnectivity/code/sceneControllers/WorkScreenController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/java_DBConnectivity/code/sceneControllers/WorkScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/java_DBConnectivity/code/sceneControllers/WorkScreenController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/DBTableWorker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/DBTableWorker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/sceneControllers/WorkScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/sceneControllers/WorkScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/fxml/CreateTable.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/fxml/CreateTable.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/fxml/InsertTable.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/fxml/InsertTable.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/css/TableScrollPane.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/TableScrollPane.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/css/TableView.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/css/TableView.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/resources/fxml/WorkScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/fxml/WorkScreen.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -35,29 +30,29 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="3" />
+          <entry key="css" value="5" />
           <entry key="fxml" value="4" />
-          <entry key="java" value="16" />
+          <entry key="java" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="3" />
-          <entry key="JAVA" value="16" />
+          <entry key="CSS" value="5" />
+          <entry key="JAVA" value="18" />
           <entry key="XML" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="100" />
+          <entry key="css" value="229" />
           <entry key="fxml" value="14" />
-          <entry key="java" value="4502" />
+          <entry key="java" value="5221" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="100" />
-          <entry key="JAVA" value="4502" />
+          <entry key="CSS" value="229" />
+          <entry key="JAVA" value="5221" />
           <entry key="XML" value="14" />
         </counts>
       </usages-collector>
@@ -74,20 +69,38 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/code/sceneControllers/LogInScreenController.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/code/sceneControllers/WorkScreenController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="77" column="8" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="8" />
+            <state relative-caret-position="171">
+              <caret line="185" column="9" lean-forward="true" selection-start-line="185" selection-start-column="9" selection-end-line="185" selection-end-column="9" />
+              <folding>
+                <element signature="e#6284#6285#0" expanded="true" />
+                <element signature="e#6315#6316#0" expanded="true" />
+                <element signature="e#6363#6364#0" expanded="true" />
+                <element signature="e#6403#6404#0" expanded="true" />
+                <element signature="e#6438#6439#0" expanded="true" />
+                <element signature="e#6469#6470#0" expanded="true" />
+                <element signature="e#6517#6518#0" expanded="true" />
+                <element signature="e#6557#6558#0" expanded="true" />
+                <element signature="e#6602#6603#0" expanded="true" />
+                <element signature="e#6637#6638#0" expanded="true" />
+                <element signature="e#6699#6700#0" expanded="true" />
+                <element signature="e#6747#6748#0" expanded="true" />
+                <element signature="e#6785#6786#0" expanded="true" />
+                <element signature="e#6812#6813#0" expanded="true" />
+                <element signature="e#6859#6860#0" expanded="true" />
+                <element signature="e#6891#6892#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/code/sceneControllers/WorkScreenController.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/code/DBTableWorker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="64" column="69" lean-forward="true" selection-start-line="64" selection-start-column="69" selection-end-line="64" selection-end-column="69" />
+            <state relative-caret-position="193">
+              <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -110,12 +123,13 @@
       <list>
         <option value="$PROJECT_DIR$/src/resources/css/ScrollPane.css" />
         <option value="$PROJECT_DIR$/src/resources/fxml/CreateTable.fxml" />
-        <option value="$PROJECT_DIR$/src/resources/css/TableView.css" />
         <option value="$PROJECT_DIR$/src/resources/fxml/InsertTable.fxml" />
-        <option value="$PROJECT_DIR$/src/code/DBTableWorker.java" />
         <option value="$PROJECT_DIR$/src/code/sceneControllers/InsertTableController.java" />
         <option value="$PROJECT_DIR$/src/code/sceneControllers/CreateTableController.java" />
         <option value="$PROJECT_DIR$/src/code/sceneControllers/LogInScreenController.java" />
+        <option value="$PROJECT_DIR$/src/resources/css/TableScrollPane.css" />
+        <option value="$PROJECT_DIR$/src/resources/css/TableView.css" />
+        <option value="$PROJECT_DIR$/src/code/DBTableWorker.java" />
         <option value="$PROJECT_DIR$/src/code/sceneControllers/WorkScreenController.java" />
       </list>
     </option>
@@ -195,7 +209,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536091199800" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1536094550204" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
@@ -242,12 +256,12 @@
       <updated>1536003816518</updated>
       <workItem from="1536003817807" duration="7506000" />
       <workItem from="1536012063264" duration="1092000" />
-      <workItem from="1536078415379" duration="11882000" />
+      <workItem from="1536078415379" duration="15126000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20480000" />
+    <option name="totallyTimeSpent" value="23724000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -312,13 +326,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/resources/css/TableView.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/resources/fxml/InsertTable.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="161">
@@ -348,55 +355,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/sceneControllers/InsertTableController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="193">
-          <caret line="100" column="4" lean-forward="true" selection-start-line="100" selection-start-column="4" selection-end-line="103" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1940#1941#0" expanded="true" />
-            <element signature="e#1987#1988#0" expanded="true" />
-            <element signature="e#2047#2048#0" expanded="true" />
-            <element signature="e#2088#2089#0" expanded="true" />
-            <element signature="e#2144#2145#0" expanded="true" />
-            <element signature="e#2199#2200#0" expanded="true" />
-            <element signature="e#2138#2139#0" expanded="true" />
-            <element signature="e#2179#2180#0" expanded="true" />
-            <element signature="e#2233#2234#0" expanded="true" />
-            <element signature="e#2268#2269#0" expanded="true" />
-            <element signature="e#2312#2313#0" expanded="true" />
-            <element signature="e#2355#2356#0" expanded="true" />
-            <element signature="e#3994#3995#0" expanded="true" />
-            <element signature="e#4029#4030#0" expanded="true" />
-            <element signature="e#4096#4097#0" expanded="true" />
-            <element signature="e#4144#4145#0" expanded="true" />
-            <element signature="e#4189#4190#0" expanded="true" />
-            <element signature="e#4224#4225#0" expanded="true" />
-            <element signature="e#4286#4287#0" expanded="true" />
-            <element signature="e#4334#4335#0" expanded="true" />
-            <element signature="e#4372#4373#0" expanded="true" />
-            <element signature="e#4399#4400#0" expanded="true" />
-            <element signature="e#4446#4447#0" expanded="true" />
-            <element signature="e#4478#4479#0" expanded="true" />
-            <element signature="e#4522#4523#0" expanded="true" />
-            <element signature="e#4548#4549#0" expanded="true" />
-            <element signature="e#4600#4601#0" expanded="true" />
-            <element signature="e#4630#4631#0" expanded="true" />
-            <element signature="e#4666#4667#0" expanded="true" />
-            <element signature="e#4698#4699#0" expanded="true" />
-            <element signature="e#4748#4749#0" expanded="true" />
-            <element signature="e#4790#4791#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/code/DBTableWorker.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="67" column="8" selection-start-line="67" selection-start-column="8" selection-end-line="67" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/code/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-60">
@@ -411,10 +369,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/css/TableScrollPane.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/resources/css/TableView.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/sceneControllers/InsertTableController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1205">
+          <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/code/DBTableWorker.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="66" column="8" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/code/sceneControllers/WorkScreenController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="64" column="69" lean-forward="true" selection-start-line="64" selection-start-column="69" selection-end-line="64" selection-end-column="69" />
+        <state relative-caret-position="171">
+          <caret line="185" column="9" lean-forward="true" selection-start-line="185" selection-start-column="9" selection-end-line="185" selection-end-column="9" />
+          <folding>
+            <element signature="e#6284#6285#0" expanded="true" />
+            <element signature="e#6315#6316#0" expanded="true" />
+            <element signature="e#6363#6364#0" expanded="true" />
+            <element signature="e#6403#6404#0" expanded="true" />
+            <element signature="e#6438#6439#0" expanded="true" />
+            <element signature="e#6469#6470#0" expanded="true" />
+            <element signature="e#6517#6518#0" expanded="true" />
+            <element signature="e#6557#6558#0" expanded="true" />
+            <element signature="e#6602#6603#0" expanded="true" />
+            <element signature="e#6637#6638#0" expanded="true" />
+            <element signature="e#6699#6700#0" expanded="true" />
+            <element signature="e#6747#6748#0" expanded="true" />
+            <element signature="e#6785#6786#0" expanded="true" />
+            <element signature="e#6812#6813#0" expanded="true" />
+            <element signature="e#6859#6860#0" expanded="true" />
+            <element signature="e#6891#6892#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
