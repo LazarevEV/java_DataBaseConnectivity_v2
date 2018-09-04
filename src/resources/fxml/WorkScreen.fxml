@@ -9,7 +9,7 @@
 
 <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: #3D4956;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.sceneControllers.WorkScreenController">
    <left>
-      <VBox spacing="5.0" BorderPane.alignment="CENTER">
+      <VBox prefHeight="597.0" prefWidth="133.0" spacing="5.0" BorderPane.alignment="CENTER">
          <children>
             <JFXButton fx:id="tableListButton" onAction="#showTableList" prefHeight="31.0" prefWidth="133.0" style="-fx-background-color: #6A7F97; -fx-background-radius: 0;" text="SHOW TABLES" textFill="#e4e4e4">
                <font>
@@ -46,4 +46,16 @@
    <right>
       <TableView fx:id="tableView" prefHeight="600.0" prefWidth="863.0" stylesheets="@../css/TableView.css" BorderPane.alignment="CENTER" />
    </right>
+   <bottom>
+      <HBox prefHeight="40.0" prefWidth="1200.0" spacing="10.0" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton fx:id="insertButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#insertTable" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #6A7F97; -fx-background-radius: 0;" text="INSERT" textFill="#e4e4e4" />
+            <JFXButton fx:id="updateButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#updateTable" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #6A7F97; -fx-background-radius: 0;" text="UPDATE" textFill="#e4e4e4" />
+            <JFXButton fx:id="dropButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#dropTable" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #6A7F97; -fx-background-radius: 0;" text="DROP" textFill="#e4e4e4" />
+         </children>
+         <padding>
+            <Insets bottom="7.0" left="580.0" top="7.0" />
+         </padding>
+      </HBox>
+   </bottom>
 </BorderPane>

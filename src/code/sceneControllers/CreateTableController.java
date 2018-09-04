@@ -38,8 +38,8 @@ public class CreateTableController {
     DBConnection dbConnection;
     DBTableWorker dbtw;
 
-    private int columnAmount;
     private String tableName;
+    private WorkScreenController wsc = new WorkScreenController();
 
     private ArrayList<TableObject> tblObjAL = new ArrayList<>();
 
@@ -64,7 +64,9 @@ public class CreateTableController {
         tableName = tblNameField.getText();
 
         dbtw.tableCreate(tblObjAL, tableName);
-
+        wsc.showTableList();
+        tableView.getItems().clear();
+        tblNameField.clear();
     }
 
     public class TableObject {
@@ -107,6 +109,14 @@ public class CreateTableController {
 
     public void setDbtw(DBTableWorker dbtw) {
         this.dbtw = dbtw;
+    }
+
+    public WorkScreenController getWsc() {
+        return wsc;
+    }
+
+    public void setWsc(WorkScreenController wsc) {
+        this.wsc = wsc;
     }
 }
 

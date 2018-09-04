@@ -43,6 +43,15 @@ public class WorkScreenController implements Initializable {
     private JFXButton createTblButton;
 
     @FXML
+    private JFXButton insertButton;
+
+    @FXML
+    private JFXButton updateButton;
+
+    @FXML
+    private JFXButton dropButton;
+
+    @FXML
     private VBox tableList;
 
     @FXML
@@ -56,12 +65,15 @@ public class WorkScreenController implements Initializable {
     private ArrayList<String> tableArrList = new ArrayList<String>();
     private Table table;
 
+    private String tableSelected = "";
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
     }
 
     public void showTableList() throws SQLException {
+        tableList.getChildren().clear();
         tableArrList = dbtw.getTableList();
         for (String talTemp : tableArrList) {
             JFXButton button = new JFXButton();
@@ -73,6 +85,7 @@ public class WorkScreenController implements Initializable {
             button.setOnAction(event -> {
                 try {
                     showTable(talTemp);
+                    tableSelected = talTemp;
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -133,6 +146,7 @@ public class WorkScreenController implements Initializable {
             CreateTableController ctc = loader.getController();
             ctc.setDbConnection(dbConnection);
             ctc.setDbtw(dbtw);
+            ctc.setWsc(this);
 
             Parent root = loader.getRoot();
             Stage wscStage = new Stage();
@@ -143,6 +157,43 @@ public class WorkScreenController implements Initializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void insertTable() {
+        if (tableSelected.equals("")) return;
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/resources/fxml/InsertTable.fxml"));
+            loader.load();
+
+            InsertTableController itc = loader.getController();
+            itc.setDbConnection(dbConnection);
+            itc.setDbtw(dbtw);
+            itc.setWsc(this);
+            itc.setTableName(tableSelected);
+            itc.setColumnNameAL(table.getColomnNames());
+            itc.initTable();
+
+            Parent root = loader.getRoot();
+            Stage itcStage = new Stage();
+            itcStage.setTitle("Working Screen");
+            itcStage.setScene(new Scene(root));
+            itcStage.setResizable(false);
+            itcStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateTable() {
+
+    }
+
+    public void dropTable() throws SQLException {
+        dbtw.tableDrop(tableSelected);
+        this.showTableList();
+        tableView.getColumns().clear();
+        tableView.getItems().clear();
     }
 
     public String getUsername() {

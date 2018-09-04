@@ -46,13 +46,14 @@ public class DBTableWorker {
         for (CreateTableController.TableObject tblObj : tblObjAL) {
             code += tblObj.getColumnName() + "  " + tblObj.getDataType() + ",\n";
         }
-
-        String selectTable = "CREATE TABLE " + tableName + " (\n" + code + ")";
+        code = code.substring(0, code.length()-2);
+        String selectTable = "CREATE TABLE " + tableName + " (\n" + code + "\n)";
         System.out.println("\n" + selectTable + "\n");
-       // resultSet = statement.executeQuery(selectTable);
+        resultSet = statement.executeQuery(selectTable);
+        System.out.println("TABLE " + tableName + " CREATED!");
     }
 
-    public void tableDrop() throws SQLException {
+    public void tableDrop(String tableName) throws SQLException {
         resultSet = statement.executeQuery("DROP TABLE " + tableName);
         System.out.println("TABLE " + tableName + " HAS BEEN DROPPED");
     }
@@ -61,8 +62,10 @@ public class DBTableWorker {
 
     }
 
-    public void tableInsert() {
-
+    public void tableInsert(String tableName, String value) throws SQLException {
+        String query = "INSERT INTO " + tableName + " VALUES (" + value + ")";
+        System.out.println(query);
+        resultSet = statement.executeQuery(query);
     }
 
     public Table showAll(String tableName) throws SQLException {
