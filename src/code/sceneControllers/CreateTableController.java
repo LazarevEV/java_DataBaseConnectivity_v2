@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -34,6 +35,9 @@ public class CreateTableController {
 
     @FXML
     private JFXButton createTblButton;
+
+    @FXML
+    private JFXButton exitButton;
 
     DBConnection dbConnection;
     DBTableWorker dbtw;
@@ -67,6 +71,11 @@ public class CreateTableController {
         wsc.showTableList();
         tableView.getItems().clear();
         tblNameField.clear();
+    }
+
+    public void exit() {
+        Stage stage = (Stage) exitButton.getScene().getWindow();
+        stage.close();
     }
 
     public class TableObject {

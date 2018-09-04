@@ -77,7 +77,8 @@ public class WorkScreenController implements Initializable {
         tableArrList = dbtw.getTableList();
         for (String talTemp : tableArrList) {
             JFXButton button = new JFXButton();
-            button.setPrefSize(tableList.getWidth(), Region.USE_COMPUTED_SIZE);
+            System.out.println(tableList.getPrefWidth());
+            button.setPrefSize(tableList.getPrefWidth(), Region.USE_COMPUTED_SIZE);
             button.setText(talTemp);
             button.setButtonType(JFXButton.ButtonType.FLAT);
             button.getStylesheets().add("/resources/css/WorkScreen.css");
@@ -92,7 +93,7 @@ public class WorkScreenController implements Initializable {
             });
             tableList.getChildren().add(button);
         }
-//TEST SCROLL PANE
+          //TEST SCROLL PANE
 //        for (int i = 0; i<10; i++) {
 //            JFXButton button = new JFXButton();
 //            button.setPrefSize(tableList.getWidth(), Region.USE_COMPUTED_SIZE);

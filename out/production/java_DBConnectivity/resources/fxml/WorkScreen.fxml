@@ -8,53 +8,34 @@
 <?import javafx.scene.layout.*?>
 
 <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: #3D4956;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.sceneControllers.WorkScreenController">
-   <left>
-      <VBox prefHeight="597.0" prefWidth="133.0" spacing="5.0" BorderPane.alignment="CENTER">
-         <children>
-            <JFXButton fx:id="tableListButton" onAction="#showTableList" prefHeight="31.0" prefWidth="133.0" style="-fx-background-color: #6A7F97; -fx-background-radius: 0;" text="SHOW TABLES" textFill="#e4e4e4">
-               <font>
-                  <Font size="16.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </JFXButton>
-            <JFXButton fx:id="createTblButton" onAction="#createTable" prefHeight="31.0" prefWidth="133.0" style="-fx-background-color: #6A7F97; -fx-background-radius: 0;" text="CREATE TABLE" textFill="#e4e4e4">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </JFXButton>
-         </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <BorderPane.margin>
-            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-         </BorderPane.margin></VBox>
-   </left>
    <center>
-      <ScrollPane fx:id="scrollPaneOne" prefHeight="600.0" prefWidth="210.0" stylesheets="@../css/ScrollPane.css" BorderPane.alignment="CENTER">
+      <ScrollPane fx:id="scrollPaneOne" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="200.0" stylesheets="@../css/ScrollPane.css" BorderPane.alignment="TOP_LEFT">
          <content>
-            <VBox fx:id="tableList" prefHeight="498.0" prefWidth="183.0" spacing="4.0">
+            <VBox fx:id="tableList" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="183.0" spacing="4.0">
                <padding>
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                </padding>
             </VBox>
          </content>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
       </ScrollPane>
    </center>
    <right>
-      <TableView fx:id="tableView" prefHeight="600.0" prefWidth="863.0" stylesheets="@../css/TableView.css" BorderPane.alignment="CENTER" />
+      <TableView fx:id="tableView" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="1000.0" stylesheets="@../css/TableView.css" BorderPane.alignment="CENTER" />
    </right>
    <bottom>
-      <HBox prefHeight="40.0" prefWidth="1200.0" spacing="10.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="54.0" prefWidth="1200.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
+            <JFXButton fx:id="tableListButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#showTableList" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #6A7F97; -fx-background-radius: 0;" text="SHOW TABLES" textFill="#e4e4e4" />
+            <JFXButton fx:id="createTblButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#createTable" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #6A7F97; -fx-background-radius: 0;" text="CREATE TABLE" textFill="#e4e4e4" />
             <JFXButton fx:id="insertButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#insertTable" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #6A7F97; -fx-background-radius: 0;" text="INSERT" textFill="#e4e4e4" />
             <JFXButton fx:id="updateButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#updateTable" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #6A7F97; -fx-background-radius: 0;" text="UPDATE" textFill="#e4e4e4" />
             <JFXButton fx:id="dropButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#dropTable" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #6A7F97; -fx-background-radius: 0;" text="DROP" textFill="#e4e4e4" />
          </children>
          <padding>
-            <Insets bottom="7.0" left="580.0" top="7.0" />
+            <Insets bottom="7.0" top="7.0" />
          </padding>
       </HBox>
    </bottom>

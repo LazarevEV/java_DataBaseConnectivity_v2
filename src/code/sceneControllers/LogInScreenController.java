@@ -75,6 +75,7 @@ public class LogInScreenController implements Initializable {
         wscStage.setTitle("Working Screen");
         wscStage.setScene(new Scene(root));
         wscStage.setResizable(false);
+        wsc.showTableList();
         wscStage.show();
     }
 
