@@ -9,9 +9,9 @@
 
 <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: #3D4956;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.sceneControllers.WorkScreenController">
    <center>
-      <ScrollPane fx:id="scrollPaneOne" hbarPolicy="NEVER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="200.0" stylesheets="@../css/ScrollPane.css" BorderPane.alignment="TOP_LEFT">
+      <ScrollPane fx:id="scrollPaneOne" hbarPolicy="NEVER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="548.0" prefWidth="200.0" stylesheets="@../css/ScrollPane.css" BorderPane.alignment="TOP_LEFT">
          <content>
-            <VBox fx:id="tableList" prefHeight="544.0" prefWidth="183.0" spacing="4.0">
+            <VBox fx:id="tableList" prefHeight="542.0" prefWidth="183.0" spacing="4.0">
                <padding>
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                </padding>
@@ -23,7 +23,44 @@
       </ScrollPane>
    </center>
    <right>
-      <TableView fx:id="tableView" focusTraversable="false" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="1000.0" stylesheets="@../css/TableView.css" BorderPane.alignment="CENTER" />
+      <HBox>
+         <children>
+            <TableView fx:id="tableView" focusTraversable="false" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="790.0" stylesheets="@../css/TableView.css" BorderPane.alignment="CENTER" />
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <Label alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="100.0" text="FILTER" textFill="#e4e4e4">
+                     <VBox.margin>
+                        <Insets left="56.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Label>
+                  <ScrollPane hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefViewportHeight="470.0" prefViewportWidth="192.0" prefWidth="202.0" stylesheets="@../css/ScrollPane.css">
+                     <content>
+                        <TableView fx:id="filterTableView" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="470.0" prefWidth="192.0" stylesheets="@../css/TableView.css">
+                          <columns>
+                            <TableColumn maxWidth="96.0" minWidth="96.0" prefWidth="96.0" resizable="false" text="COLUMN" />
+                            <TableColumn maxWidth="96.0" minWidth="96.0" prefWidth="96.0" text="DATA" />
+                          </columns>
+                           <VBox.margin>
+                              <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                           </VBox.margin>
+                        </TableView>
+                     </content>
+                  </ScrollPane>
+                  <JFXButton fx:id="clearFilterBtn" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#clearFilter" prefHeight="40.0" prefWidth="100.0" styleClass="jfxbutton_rad" stylesheets="@../css/Button.css" text="CLEAR">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="50.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
    </right>
    <bottom>
       <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="54.0" prefWidth="1200.0" spacing="10.0" BorderPane.alignment="CENTER">
@@ -33,7 +70,7 @@
                   <Font name="System Bold" size="19.0" />
                </font>
                <HBox.margin>
-                  <Insets right="200.0" />
+                  <Insets right="150.0" />
                </HBox.margin>
             </JFXButton>
             <JFXButton fx:id="tableListButton" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#showTableList" prefHeight="40.0" prefWidth="120.0" styleClass="jfxbutton" stylesheets="@../css/Button.css" text="UPD TBL LIST" textFill="#e4e4e4">
@@ -58,7 +95,7 @@
                </HBox.margin></JFXButton>
             <JFXButton fx:id="dropButton" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#dropTable" prefHeight="40.0" prefWidth="120.0" styleClass="jfxbutton" stylesheets="@../css/Button.css" text="DROP" textFill="#e4e4e4">
                <HBox.margin>
-                  <Insets right="50.0" />
+                  <Insets right="70.0" />
                </HBox.margin></JFXButton>
          </children>
          <padding>

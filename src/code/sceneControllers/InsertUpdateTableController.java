@@ -63,7 +63,7 @@ public class InsertUpdateTableController implements Initializable {
         editedCellId.clear();
         value = value.substring(2);
         dbtw.tableUpdate(tableName, value, where);
-        wsc.showTable(tableName);
+        wsc.showTable(tableName, "ALL", null);
 
         dataInit();
         getWhere();
@@ -104,7 +104,7 @@ public class InsertUpdateTableController implements Initializable {
         value = value.substring(0, value.length() - 2);
         System.out.println("Value: " + value);
         dbtw.tableInsert(tableName, value);
-        wsc.showTable(tableName);
+        wsc.showTable(tableName, "ALL", null);
         clearData();
     }
 

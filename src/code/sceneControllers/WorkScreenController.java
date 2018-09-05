@@ -7,6 +7,7 @@ import com.jfoenix.controls.JFXButton;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,6 +16,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
@@ -48,6 +51,12 @@ public class WorkScreenController implements Initializable {
     private JFXButton dropButton;
 
     @FXML
+    private JFXButton clearFilterBtn;
+
+    @FXML
+    private TableView<TableObject> filterTableView;
+
+    @FXML
     private VBox tableList;
 
     @FXML
@@ -60,8 +69,8 @@ public class WorkScreenController implements Initializable {
     private String password;
     private ArrayList<String> tableArrList = new ArrayList<String>();
     private Table table;
-
     private String tableSelected = "";
+    private ArrayList<String> filterWhere = new ArrayList<>();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -80,30 +89,87 @@ public class WorkScreenController implements Initializable {
             button.getStyleClass().add("jfxbutton");
             button.setOnAction(event -> {
                 try {
-                    showTable(talTemp);
+                    showTable(talTemp, "ALL", null);
                     tableSelected = talTemp;
                     tableView.getSelectionModel().clearSelection();
-
+                    initFilterTableView();
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
             });
             tableList.getChildren().add(button);
         }
-          //TEST SCROLL PANE
-//        for (int i = 0; i<10; i++) {
-//            JFXButton button = new JFXButton();
-//            button.setPrefSize(tableList.getWidth(), Region.USE_COMPUTED_SIZE);
-//            button.setText("Button "+i);
-//            button.setButtonType(JFXButton.ButtonType.FLAT);
-//            button.getStylesheets().add("/resources/css/WorkScreen.css");
-//            button.getStyleClass().add("tableButton");
-//            tableList.getChildren().add(button);
-//        }
     }
 
-    public void showTable(String tableName) throws SQLException {
-        table = dbtw.showAll(tableName);
+    private void showSelectedTable(ArrayList<String> filterWhere) throws SQLException {
+        String where = "";
+        System.out.println(filterWhere);
+        for (int i =0; i < table.getColumns(); i++) {
+            if (filterWhere.get(i) != null) {
+                where += " " + table.getColomnNames().get(i) + " LIKE \'" +
+                        filterWhere.get(i)+ "%\' AND";
+            }
+        }
+        where = where.substring(0, where.length()-4);
+
+        showTable(table.getTableName(), "SELECTIVE", where);
+    }
+
+    private void initFilterWhere() {
+        for (int i = 0; i < table.getColumns(); i++) {
+            filterWhere.add(null);
+        }
+    }
+
+    public void clearFilter() throws SQLException {
+        filterWhere.clear();
+        initFilterWhere();
+        filterTableView.getItems().clear();
+        initFilterTableView();
+        showTable(table.getTableName(), "ALL", null);
+    }
+
+    public void initFilterTableView() {
+        filterTableView.getItems().clear();
+        ArrayList<String> data = new ArrayList<>();
+        filterTableView.setEditable(true);
+        filterTableView.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("columnName"));
+        filterTableView.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("data"));
+        implementCellEditing(filterTableView.getColumns().get(1));
+
+        for (String str : table.getColomnNames()) {
+            filterTableView.getItems().add(new TableObject(str, "NULL"));
+            data.add("NULL");
+        }
+
+        initFilterWhere();
+    }
+
+    private void implementCellEditing(TableColumn tblColumn) {
+        tblColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+        tblColumn.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<TableObject, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<TableObject, String> t) {
+                        ((TableObject) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())
+                        ).setData(t.getNewValue());
+
+                        filterWhere.set(t.getTablePosition().getRow(), t.getNewValue());
+                        try {
+                            showSelectedTable(filterWhere);
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                }
+        );
+    }
+
+
+    public void showTable(String tableName, String type, String where) throws SQLException {
+        table = dbtw.showAll(tableName, type, where);
         tableView.getColumns().clear();
 
         for (int i = 0; i < table.getColumns(); i++) {
@@ -184,19 +250,13 @@ public class WorkScreenController implements Initializable {
         where += where.substring(0, where.length()-4);
 
         dbtw.tableDelete(tableSelected, where);
-        showTable(tableSelected);
+        showTable(tableSelected, "ALL", null);
 
-        tableView.getSelectionModel().getSelectedItem().clear();
+        tableView.getSelectionModel().clearSelection();
     }
 
     public void updateRow() {
         if (tableView.getSelectionModel().isEmpty()) return;
-        String where = "";
-        for (int i =0; i < table.getColumns(); i++) {
-            where += " " + table.getColomnNames().get(i) + " = \'" +
-                    tableView.getSelectionModel().getSelectedItem().get(i) + "\' AND";
-        }
-        where += where.substring(0, where.length()-4);
 
         try{
             FXMLLoader loader = new FXMLLoader();
@@ -264,4 +324,39 @@ public class WorkScreenController implements Initializable {
     public void setDbtw(DBTableWorker dbtw) {
         this.dbtw = dbtw;
     }
+
+    public class TableObject {
+        private final SimpleStringProperty columnName;
+        private final SimpleStringProperty data;
+
+        public TableObject(String columnName, String data) {
+            this.columnName = new SimpleStringProperty(columnName);
+            this.data = new SimpleStringProperty(data);
+        }
+
+        public String getColumnName() {
+            return columnName.get();
+        }
+
+        public SimpleStringProperty columnNameProperty() {
+            return columnName;
+        }
+
+        public void setColumnName(String columnName) {
+            this.columnName.set(columnName);
+        }
+
+        public String getData() {
+            return data.get();
+        }
+
+        public SimpleStringProperty dataProperty() {
+            return data;
+        }
+
+        public void setData(String data) {
+            this.data.set(data);
+        }
+    }
+
 }

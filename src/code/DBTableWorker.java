@@ -33,7 +33,6 @@ public class DBTableWorker {
         return tableList;
     }
 
-
     public void tableCreate(ArrayList<CreateTableController.TableObject> tblObjAL, String tableName) throws SQLException {
         String code = "";
         for (CreateTableController.TableObject tblObj : tblObjAL) {
@@ -69,8 +68,14 @@ public class DBTableWorker {
         resultSet = statement.executeQuery(query);
     }
 
-    public Table showAll(String tableName) throws SQLException {
-        resultSet = statement.executeQuery("SELECT * FROM " + tableName);
+    public Table showAll(String tableName, String type, String where) throws SQLException {
+        if (type.equals("SELECTIVE")) {
+            resultSet = statement.executeQuery("SELECT * FROM " + tableName + " WHERE " + where);
+        }
+        if (type.equals("ALL")) {
+            resultSet = statement.executeQuery("SELECT * FROM " + tableName);
+        }
+
         rsmd = resultSet.getMetaData();
 
         int colomns = rsmd.getColumnCount();
