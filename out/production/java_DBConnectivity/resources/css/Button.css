@@ -1,0 +1,27 @@
+.jfxbutton {
+    -fx-background-color:  #6A7F97;
+    -fx-background-radius: 0;
+    -fx-text-alignment: CENTER;
+    -fx-text-fill: #E4E4E4;
+}
+.jfxbutton:hover {
+    -fx-background-color: #88A1BD;
+}
+
+.jfxbutton_rad {
+    -fx-background-color:  #6A7F97;
+    -fx-text-alignment: CENTER;
+    -fx-text-fill: #E4E4E4;
+}
+.jfxbutton_rad:hover {
+    -fx-background-color: #88A1BD;
+}
+
+.jfxbutton_close {
+    -fx-background-color: #CC0000;
+    -fx-text-alignment: CENTER;
+    -fx-text-fill: BLACK;
+}
+.jfxbutton_close:hover {
+    -fx-background-color: #FF0000;
+}

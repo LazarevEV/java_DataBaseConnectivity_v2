@@ -41,7 +41,7 @@
                         <TextField fx:id="passTF" />
                      </children>
                   </HBox>
-                  <JFXButton fx:id="loginButton" onAction="#logIn" prefHeight="26.0" prefWidth="114.0" style="-fx-background-color: #6A7F97;" text="LOG IN" textFill="#e4e4e4">
+                  <JFXButton fx:id="loginButton" onAction="#logIn" prefHeight="26.0" prefWidth="114.0" styleClass="jfxbutton_rad" stylesheets="@../css/Button.css" text="LOG IN" textFill="#e4e4e4">
                      <font>
                         <Font name="System Bold" size="19.0" />
                      </font>

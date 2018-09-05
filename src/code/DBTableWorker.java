@@ -51,8 +51,10 @@ public class DBTableWorker {
         System.out.println("TABLE " + tableName + " HAS BEEN DROPPED");
     }
 
-    public void tableUpdate() {
-
+    public void tableUpdate(String tableName, String value, String where) throws SQLException {
+        String query = "UPDATE " + tableName + " SET " + value + " WHERE " + where;
+        System.out.println("UPDATE QUERY: " + query);
+        resultSet = statement.executeQuery(query);
     }
 
     public void tableInsert(String tableName, String value) throws SQLException {

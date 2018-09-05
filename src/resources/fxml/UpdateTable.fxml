@@ -24,7 +24,7 @@
           <TableColumn prefWidth="200.0" text="DATA" />
         </columns>
       </TableView>
-      <JFXButton fx:id="insertRowButton" alignment="CENTER" onAction="#insertRow" prefHeight="47.0" prefWidth="166.0" styleClass="jfxbutton_rad" stylesheets="@../css/Button.css" text="INSERT ROW" textFill="#e4e4e4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+      <JFXButton fx:id="updateRowButton" alignment="CENTER" onAction="#updateRow" prefHeight="47.0" prefWidth="166.0" styleClass="jfxbutton_rad" stylesheets="@../css/Button.css" text="UPDATE ROW" textFill="#e4e4e4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>

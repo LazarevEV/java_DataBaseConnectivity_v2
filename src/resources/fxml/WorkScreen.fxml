@@ -9,9 +9,9 @@
 
 <BorderPane fx:id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: #3D4956;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.sceneControllers.WorkScreenController">
    <center>
-      <ScrollPane fx:id="scrollPaneOne" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="200.0" stylesheets="@../css/ScrollPane.css" BorderPane.alignment="TOP_LEFT">
+      <ScrollPane fx:id="scrollPaneOne" hbarPolicy="NEVER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="546.0" prefWidth="200.0" stylesheets="@../css/ScrollPane.css" BorderPane.alignment="TOP_LEFT">
          <content>
-            <VBox fx:id="tableList" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="183.0" spacing="4.0">
+            <VBox fx:id="tableList" prefHeight="544.0" prefWidth="183.0" spacing="4.0">
                <padding>
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                </padding>
@@ -28,12 +28,38 @@
    <bottom>
       <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="54.0" prefWidth="1200.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <JFXButton fx:id="tableListButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#showTableList" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #6A7F97; -fx-background-radius: 0;" text="SHOW TABLES" textFill="#e4e4e4" />
-            <JFXButton fx:id="createTblButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#createTable" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #6A7F97; -fx-background-radius: 0;" text="CREATE TABLE" textFill="#e4e4e4" />
-            <JFXButton fx:id="insertButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#insertRow" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #6A7F97; -fx-background-radius: 0;" text="INSERT ROW" textFill="#e4e4e4" />
-            <JFXButton fx:id="deleteButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#deleteRow" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #6A7F97; -fx-background-radius: 0;" text="DELETE ROW" textFill="#e4e4e4" />
-            <JFXButton fx:id="updateButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#updateTable" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #6A7F97; -fx-background-radius: 0;" text="UPDATE" textFill="#e4e4e4" />
-            <JFXButton fx:id="dropButton" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#dropTable" prefHeight="40.0" prefWidth="120.0" style="-fx-background-color: #6A7F97; -fx-background-radius: 0;" text="DROP" textFill="#e4e4e4" />
+            <JFXButton alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="40.0" styleClass="jfxbuttonExit" stylesheets="@../css/ExitButton.css" text="X">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="200.0" />
+               </HBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="tableListButton" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#showTableList" prefHeight="40.0" prefWidth="120.0" styleClass="jfxbutton" stylesheets="@../css/Button.css" text="UPD TBL LIST" textFill="#e4e4e4">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></JFXButton>
+            <JFXButton fx:id="createTblButton" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#createTable" prefHeight="40.0" prefWidth="120.0" styleClass="jfxbutton" stylesheets="@../css/Button.css" text="CREATE TABLE" textFill="#e4e4e4">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></JFXButton>
+            <JFXButton fx:id="insertButton" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#insertRow" prefHeight="40.0" prefWidth="120.0" styleClass="jfxbutton" stylesheets="@../css/Button.css" text="INSERT ROW" textFill="#e4e4e4">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></JFXButton>
+            <JFXButton fx:id="deleteButton" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#deleteRow" prefHeight="40.0" prefWidth="120.0" styleClass="jfxbutton" stylesheets="@../css/Button.css" text="DELETE ROW" textFill="#e4e4e4">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></JFXButton>
+            <JFXButton fx:id="updateButton" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#updateRow" prefHeight="40.0" prefWidth="120.0" styleClass="jfxbutton" stylesheets="@../css/Button.css" text="UPDATE ROW" textFill="#e4e4e4">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></JFXButton>
+            <JFXButton fx:id="dropButton" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#dropTable" prefHeight="40.0" prefWidth="120.0" styleClass="jfxbutton" stylesheets="@../css/Button.css" text="DROP" textFill="#e4e4e4">
+               <HBox.margin>
+                  <Insets right="50.0" />
+               </HBox.margin></JFXButton>
          </children>
          <padding>
             <Insets bottom="7.0" top="7.0" />

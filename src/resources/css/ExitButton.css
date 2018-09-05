@@ -1,0 +1,8 @@
+.jfxbuttonExit {
+    -fx-background-color: #CC0000;
+    -fx-text-alignment: CENTER;
+    -fx-text-fill: BLACK;
+}
+.jfxbuttonExit:hover {
+    -fx-background-color: #FF0000;
+}

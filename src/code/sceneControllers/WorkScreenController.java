@@ -4,7 +4,6 @@ import code.DBConnection;
 import code.DBTableWorker;
 import code.Table;
 import com.jfoenix.controls.JFXButton;
-import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
@@ -19,16 +18,13 @@ import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Callback;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 
 public class WorkScreenController implements Initializable {
@@ -77,16 +73,17 @@ public class WorkScreenController implements Initializable {
         tableArrList = dbtw.getTableList();
         for (String talTemp : tableArrList) {
             JFXButton button = new JFXButton();
-            System.out.println(tableList.getPrefWidth());
             button.setPrefSize(tableList.getPrefWidth(), Region.USE_COMPUTED_SIZE);
             button.setText(talTemp);
             button.setButtonType(JFXButton.ButtonType.FLAT);
-            button.getStylesheets().add("/resources/css/WorkScreen.css");
-            button.getStyleClass().add("tableButton");
+            button.getStylesheets().add("/resources/css/Button.css");
+            button.getStyleClass().add("jfxbutton");
             button.setOnAction(event -> {
                 try {
                     showTable(talTemp);
                     tableSelected = talTemp;
+                    tableView.getSelectionModel().clearSelection();
+
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
@@ -156,13 +153,13 @@ public class WorkScreenController implements Initializable {
             loader.setLocation(getClass().getResource("/resources/fxml/InsertTable.fxml"));
             loader.load();
 
-            InsertTableController itc = loader.getController();
+            InsertUpdateTableController itc = loader.getController();
             itc.setDbConnection(dbConnection);
             itc.setDbtw(dbtw);
             itc.setWsc(this);
             itc.setTableName(tableSelected);
             itc.setColumnNameAL(table.getColomnNames());
-            itc.initTable();
+            itc.initTable("INSERT");
 
             Parent root = loader.getRoot();
             Stage itcStage = new Stage();
@@ -176,7 +173,7 @@ public class WorkScreenController implements Initializable {
     }
 
     public void deleteRow() throws SQLException {
-        if (tableView.getSelectionModel().getSelectedItem().isEmpty()) return;
+        if (tableView.getSelectionModel().isEmpty()) return;
         String where = "";
         System.out.println("Columns: " + table.getColumns());
 
@@ -188,10 +185,45 @@ public class WorkScreenController implements Initializable {
 
         dbtw.tableDelete(tableSelected, where);
         showTable(tableSelected);
+
+        tableView.getSelectionModel().getSelectedItem().clear();
     }
 
-    public void updateTable() {
+    public void updateRow() {
+        if (tableView.getSelectionModel().isEmpty()) return;
+        String where = "";
+        for (int i =0; i < table.getColumns(); i++) {
+            where += " " + table.getColomnNames().get(i) + " = \'" +
+                    tableView.getSelectionModel().getSelectedItem().get(i) + "\' AND";
+        }
+        where += where.substring(0, where.length()-4);
 
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/resources/fxml/UpdateTable.fxml"));
+            loader.load();
+
+            InsertUpdateTableController utc = loader.getController();
+            utc.setDbConnection(dbConnection);
+            utc.setDbtw(dbtw);
+            utc.setWsc(this);
+            utc.setTableName(tableSelected);
+            utc.setColumnNameAL(table.getColomnNames());
+            utc.setOldRow(table.getData().get(tableView.getSelectionModel().getSelectedIndex()));
+            utc.initTable("UPDATE");
+
+
+            Parent root = loader.getRoot();
+            Stage itcStage = new Stage();
+            itcStage.setTitle("Working Screen");
+            itcStage.setScene(new Scene(root));
+            itcStage.setResizable(false);
+            itcStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        tableView.getSelectionModel().clearSelection();
     }
 
     public void dropTable() throws SQLException {
