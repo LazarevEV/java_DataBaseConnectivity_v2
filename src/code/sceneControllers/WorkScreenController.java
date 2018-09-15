@@ -103,7 +103,6 @@ public class WorkScreenController implements Initializable {
 
     private void showSelectedTable(ArrayList<String> filterWhere) throws SQLException {
         String where = "";
-        System.out.println(filterWhere);
         for (int i =0; i < table.getColumns(); i++) {
             if (filterWhere.get(i) != null) {
                 where += " " + table.getColomnNames().get(i) + " LIKE \'" +
@@ -241,7 +240,6 @@ public class WorkScreenController implements Initializable {
     public void deleteRow() throws SQLException {
         if (tableView.getSelectionModel().isEmpty()) return;
         String where = "";
-        System.out.println("Columns: " + table.getColumns());
 
         for (int i =0; i < table.getColumns(); i++) {
             where += " " + table.getColomnNames().get(i) + " = \'" +

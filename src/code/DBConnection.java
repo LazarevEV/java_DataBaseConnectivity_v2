@@ -8,7 +8,7 @@ public class DBConnection {
     private ResultSet resultSet;
 
     private String localhost = "MSI";
-    private String dbName = "oracleDB";
+    private String dbName = "orcl";
     private String url = "jdbc:oracle:thin:@" + localhost + ":1521:" + dbName;
 
     public void setConnection(String user, String password) throws ClassNotFoundException, SQLException {
@@ -16,14 +16,6 @@ public class DBConnection {
         Class.forName("oracle.jdbc.driver.OracleDriver");
         //create Connection
         connection = DriverManager.getConnection(url, user, password);
-
-
-        //create Statement Object
-        //statement = connection.createStatement();
-        //execute query (запрос)
-        //resultSet = statement.executeQuery("SELECT * FROM branch");
-
-
     }
 
     public void closeConnection() throws SQLException {

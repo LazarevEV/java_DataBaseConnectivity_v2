@@ -2,8 +2,8 @@ package code.sceneControllers;
 
 import code.DBConnection;
 import code.DBTableWorker;
+import code.TableObject;
 import com.jfoenix.controls.JFXButton;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -61,7 +61,6 @@ public class CreateTableController {
         clmnNameField.clear();
         dataTypeField.clear();
 
-        System.out.println("columnName: " + tblObjAL.get(tblObjAL.size()-1).columnName.getValue() + " || dataType: " + tblObjAL.get(tblObjAL.size()-1).dataType.getValue());
     }
 
     public void createTable() throws SQLException {
@@ -78,31 +77,6 @@ public class CreateTableController {
         stage.close();
     }
 
-    public class TableObject {
-        private final SimpleStringProperty columnName;
-        private final SimpleStringProperty dataType;
-
-        public TableObject(String columnName, String dataType) {
-            this.columnName = new SimpleStringProperty(columnName);
-            this.dataType = new SimpleStringProperty(dataType);
-        }
-
-        public String getColumnName() {
-            return columnName.getValue();
-        }
-
-        public void setColumnName(String columnName) {
-            this.columnName.set(columnName);
-        }
-
-        public String getDataType() {
-            return dataType.getValue();
-        }
-
-        public void setDataType(String dataType) {
-            this.dataType.set(dataType);
-        }
-    }
 
     public DBConnection getDbConnection() {
         return dbConnection;

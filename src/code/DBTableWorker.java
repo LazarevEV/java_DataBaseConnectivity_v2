@@ -33,10 +33,10 @@ public class DBTableWorker {
         return tableList;
     }
 
-    public void tableCreate(ArrayList<CreateTableController.TableObject> tblObjAL, String tableName) throws SQLException {
+    public void tableCreate(ArrayList<TableObject> tblObjAL, String tableName) throws SQLException {
         String code = "";
-        for (CreateTableController.TableObject tblObj : tblObjAL) {
-            code += tblObj.getColumnName() + "  " + tblObj.getDataType() + ",\n";
+        for (TableObject tblObj : tblObjAL) {
+            code += tblObj.getColumnName() + "  " + tblObj.getData() + ",\n";
         }
         code = code.substring(0, code.length()-2);
         String selectTable = "CREATE TABLE " + tableName + " (\n" + code + "\n)";

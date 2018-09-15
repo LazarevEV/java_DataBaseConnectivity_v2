@@ -49,7 +49,7 @@ public class LogInScreenController implements Initializable {
 
         if (logInCheck.check(username, password)) {
             dbConnection.setConnection(username, password);
-            System.out.println("CORRECT");
+            //System.out.println("CORRECT");
             openWorkScreen();
             ((Stage) loginButton.getScene().getWindow()).close();
         } else {
