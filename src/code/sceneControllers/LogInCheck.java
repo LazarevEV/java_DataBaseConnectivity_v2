@@ -11,16 +11,18 @@ public class LogInCheck {
         boolean connected = true;
         try {
             dbConnection.setConnection(username, password);
+
+            try {
+                dbConnection.closeConnection();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (SQLException e) {
-            e.printStackTrace();
+            //e.printStackTrace();
             connected = false;
-        }
-        try {
-            dbConnection.closeConnection();
-        } catch (SQLException e) {
-            e.printStackTrace();
         }
         return connected;
 

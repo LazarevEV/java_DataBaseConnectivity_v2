@@ -2,6 +2,7 @@ package code.sceneControllers;
 
 import code.DBConnection;
 import code.DBTableWorker;
+import code.StageMover;
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCombination;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import org.w3c.dom.events.Event;
 
 import java.awt.event.ActionEvent;
@@ -30,16 +32,26 @@ public class LogInScreenController implements Initializable {
     private JFXButton loginButton;
 
     @FXML
+    private JFXButton exitButton;
+
+    @FXML
     private TextField passTF;
 
     private String username;
     private String password;
 
     private DBConnection dbConnection = new DBConnection();
+    private StageMover stgm = new StageMover();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        userTF.setPromptText("Username");
+        passTF.setPromptText("Password");
+    }
 
+    public void exit() {
+        Stage stage = (Stage) exitButton.getScene().getWindow();
+        stage.close();
     }
 
     public void logIn() throws SQLException, ClassNotFoundException, IOException {
@@ -49,13 +61,16 @@ public class LogInScreenController implements Initializable {
 
         if (logInCheck.check(username, password)) {
             dbConnection.setConnection(username, password);
-            //System.out.println("CORRECT");
             openWorkScreen();
             ((Stage) loginButton.getScene().getWindow()).close();
         } else {
             System.out.println("Username or password is incorrect! Try again!");
             userTF.setText(null);
             passTF.setText(null);
+            userTF.setPromptText("Invalid Username");
+            passTF.setPromptText("Invalid Password");
+            userTF.setStyle("-fx-prompt-text-fill: red");
+            passTF.setStyle("-fx-prompt-text-fill: red");
         }
     }
 
@@ -72,8 +87,10 @@ public class LogInScreenController implements Initializable {
 
         Parent root = loader.getRoot();
         Stage wscStage = new Stage();
+        wscStage.initStyle(StageStyle.UNDECORATED);
         wscStage.setTitle("Working Screen");
         wscStage.setScene(new Scene(root));
+        stgm.setMovable(root, wscStage);
         wscStage.setResizable(false);
         wsc.showTableList();
         wscStage.show();

@@ -2,6 +2,7 @@ package code.sceneControllers;
 
 import code.DBConnection;
 import code.DBTableWorker;
+import code.StageMover;
 import code.Table;
 import com.jfoenix.controls.JFXButton;
 import javafx.beans.property.SimpleStringProperty;
@@ -22,6 +23,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Callback;
 
 import java.io.IOException;
@@ -54,6 +56,9 @@ public class WorkScreenController implements Initializable {
     private JFXButton clearFilterBtn;
 
     @FXML
+    private JFXButton exitButton;
+
+    @FXML
     private TableView<TableObject> filterTableView;
 
     @FXML
@@ -64,6 +69,7 @@ public class WorkScreenController implements Initializable {
 
     DBConnection dbConnection;
     DBTableWorker dbtw;
+    private StageMover stgm = new StageMover();
 
     private String username;
     private String password;
@@ -134,6 +140,8 @@ public class WorkScreenController implements Initializable {
         filterTableView.setEditable(true);
         filterTableView.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("columnName"));
         filterTableView.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("data"));
+        filterTableView.getColumns().get(0).setSortable(false);
+        filterTableView.getColumns().get(1).setSortable(false);
         implementCellEditing(filterTableView.getColumns().get(1));
 
         for (String str : table.getColomnNames()) {
@@ -201,11 +209,13 @@ public class WorkScreenController implements Initializable {
             ctc.setWsc(this);
 
             Parent root = loader.getRoot();
-            Stage wscStage = new Stage();
-            wscStage.setTitle("Working Screen");
-            wscStage.setScene(new Scene(root));
-            wscStage.setResizable(false);
-            wscStage.show();
+            Stage ctcStage = new Stage();
+            ctcStage.initStyle(StageStyle.UNDECORATED);
+            ctcStage.setTitle("Working Screen");
+            ctcStage.setScene(new Scene(root));
+            stgm.setMovable(root, ctcStage);
+            ctcStage.setResizable(false);
+            ctcStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -228,8 +238,10 @@ public class WorkScreenController implements Initializable {
 
             Parent root = loader.getRoot();
             Stage itcStage = new Stage();
+            itcStage.initStyle(StageStyle.UNDECORATED);
             itcStage.setTitle("Working Screen");
             itcStage.setScene(new Scene(root));
+            stgm.setMovable(root, itcStage);
             itcStage.setResizable(false);
             itcStage.show();
         } catch (IOException e) {
@@ -273,8 +285,10 @@ public class WorkScreenController implements Initializable {
 
             Parent root = loader.getRoot();
             Stage itcStage = new Stage();
+            itcStage.initStyle(StageStyle.UNDECORATED);
             itcStage.setTitle("Working Screen");
             itcStage.setScene(new Scene(root));
+            stgm.setMovable(root, itcStage);
             itcStage.setResizable(false);
             itcStage.show();
         } catch (IOException e) {
@@ -289,6 +303,11 @@ public class WorkScreenController implements Initializable {
         this.showTableList();
         tableView.getColumns().clear();
         tableView.getItems().clear();
+    }
+
+    public void exit() {
+        Stage stage = (Stage) exitButton.getScene().getWindow();
+        stage.close();
     }
 
     public String getUsername() {

@@ -47,12 +47,50 @@ public class CreateTableController {
 
     private ArrayList<TableObject> tblObjAL = new ArrayList<>();
 
+
+
+    private boolean checkField() {
+        int a = 0;
+
+        if (tblNameField.getText().equals("")) {
+            tblNameField.setPromptText("Set TableName");
+            tblNameField.setStyle("-fx-prompt-text-fill: red");
+            a++;
+        }
+
+        if (clmnNameField.getText().equals("")) {
+            clmnNameField.setPromptText("Set TableName");
+            clmnNameField.setStyle("-fx-prompt-text-fill: red");
+            a++;
+        }
+
+        if (dataTypeField.getText().equals("")) {
+            dataTypeField.setPromptText("Set Data");
+            dataTypeField.setStyle("-fx-prompt-text-fill: red");
+            a++;
+        }
+
+        if (a!=0) return false;
+
+        return true;
+    }
+
+    private void clearPromtErrors() {
+        tblNameField.setPromptText("");
+        clmnNameField.setPromptText("");
+        dataTypeField.setPromptText("");
+    }
+
     public void setColumn() {
+        clearPromtErrors();
+
+        if (!checkField()) return;
+
         String columnName = clmnNameField.getText();
         String dataType = dataTypeField.getText();
 
         tableView.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("columnName"));
-        tableView.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("dataType"));
+        tableView.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("data"));
 
         tableView.getItems().add(new TableObject(columnName, dataType));
 
@@ -64,6 +102,11 @@ public class CreateTableController {
     }
 
     public void createTable() throws SQLException {
+        clearPromtErrors();
+        System.out.println(tblNameField.getText());
+
+        if (!checkField()) return;
+
         tableName = tblNameField.getText();
 
         dbtw.tableCreate(tblObjAL, tableName);
